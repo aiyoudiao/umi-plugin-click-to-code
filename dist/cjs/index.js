@@ -74,7 +74,8 @@ import { ClickToComponent } from 'click-to-react-component';
 import React from 'react';
 
 const pathModifier = (path) => {
-  return path.startsWith('${posixCwd}') ? path : '${posixCwd}/' + path;
+  const posixPath = path.split(${JSON.stringify(import_path.default.sep)}).join('/');
+  return posixPath.startsWith('${posixCwd}') ? posixPath : '${posixCwd}/' + posixPath;
 }
 
 export function rootContainer(container, opts) {
